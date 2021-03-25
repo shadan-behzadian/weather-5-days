@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+    rgb(128, 202, 226),
+    rgb(68, 68, 223),
+    rgb(24, 24, 179)
+  );
+
+  border-radius: 20px;
+  height: 100vh;
+}
+
+main {
+  color: white;
+  max-width: 900px;
+  margin: auto;
+  font-size: 3rem;
+  height: 100%;
+}
+
+.current-icon {
+  width: 30%;
+  display: flex;
+}
+
+.current-icon img {
+  width: 100%;
+}
+
+.currentInfo {
+  width: 60%;
+}
+
+header {
+  display: flex;
+  margin-bottom: 5%;
+  justify-content: space-between;
+  margin: 5% auto;
+}
+
+.eachDay {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+.max-temp {
+  color: red;
+}
+.min-temp {
+  color: aqua;
+}
+
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  .current-icon {
+    width: 30%;
+    display: flex;
+  }
+
+  .current-icon img {
+    width: 100%;
+  }
+
+  .currentInfo {
+    width: 60%;
+  }
+
+  .weather-icon {
+    width: 15%;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  header {
+    display: flex;
+    justify-content: end;
+  }
+
+  .current-icon {
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .current-icon img {
+    width: 100%;
+  }
+
+  .currentInfo {
+    width: 40%;
+  }
+
+  .weather-icon {
+    width: 50%;
+  }
+  .eachDay {
+    display: flex;
+    flex-direction: column;
+  }
+  .forcast {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+}
