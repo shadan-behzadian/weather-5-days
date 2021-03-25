@@ -1,25 +1,8 @@
-// svg icons
-let icons = {
-  Clouds: "./allsvg/clouds.svg",
-  Clear: "./allsvg/clear.svg",
-  Tornado: "./allsvg/tornado.svg",
-  Squall: "./allsvg/tornado.svg",
-  Ash: "./allsvg/tornado.svg",
-  Dust: "./allsvg/tornado.svg",
-  Sand: "./allsvg/tornado.svg",
-  Fog: "./allsvg/tornado.svg",
-  Haze: "./allsvg/tornado.svg",
-  Smoke: "./allsvg/tornado.svg",
-  Mist: "./allsvg/tornado.svg",
-  Snow: "./allsvg/snow.svg",
-  Rain: "./allsvg/rain.svg",
-  Drizzle: "./allsvg/drizzle.svg",
-  Thunderstorm: "./allsvg/thunderstorm.svg",
-};
+let numOfDays = 5;
 //fetch weather data for Barcelona then calls currentWeather and forcast functions to show current weather and 5 upcoming days forcast
 fetchWeatherData();
-function fetchWeatherData() {
-  fetch(
+async function fetchWeatherData() {
+  const response = await fetch(
     "https://api.openweathermap.org/data/2.5/onecall?lon=2.159&lat=41.3888&uniots=metric&appid=ad86ce3ee764480409cf4761eedd5260",
     { method: "GET" }
   )
@@ -37,11 +20,12 @@ function fetchWeatherData() {
       console.log("Request failed: " + error.message);
     });
 }
+
 // current weather
-function currentWeather(data) {
-  document.querySelector(".current-icon").innerHTML = `<img  src=${
-    icons[data.current.weather[0].main]
-  }>`;
+currentWeather = (data) => {
+  document.querySelector(".current-icon").innerHTML = `<img  src=${weatherIcons(
+    data.current.weather[0].main
+  )}>`;
   document.querySelector(".currentInfo").innerHTML = `<h1>Barcelona, Spain</h1>
       <p class="current-temp">${convertToCelsius(data.current.temp)}&deg</p>
       <p class="current-humidity">Humidity: ${data.current.humidity}%</p>
@@ -49,11 +33,11 @@ function currentWeather(data) {
       <p class="current-wind">Wind: ${windDirection(
         data.current.wind_deg
       )} ${convertWindSpeed(data.current.wind_speed)}Kmh</p>`;
-}
+};
 // weather forcast of 5 upcoming days
-function forcast(weekdays) {
-  comingDays = [];
-  for (i = 0; i < 5; i = i + 1) {
+forcast = (weekdays) => {
+  let comingDays = [];
+  for (i = 0; i < numOfDays; i++) {
     comingDays.push(weekdays[i]);
   }
   let weekday = new Array(7);
@@ -66,30 +50,29 @@ function forcast(weekdays) {
   weekday[6] = "Saturday";
   let today = new Date().getDay();
   weekday[today] = "Today";
-  let displayForcast = comingDays.map(function (day) {
-    console.log(day);
+  let displayForcast = comingDays.map((day) => {
     let dayNum = new Date(day.dt * 1000).getDay();
     return ` <div class="eachDay"> <p class="week-name">${weekday[dayNum]}</p>
-    <img src=${
-      icons[day.weather[0].main]
-    } class="weather-icon" alt="weatherIcon"/>
+    <img src=${weatherIcons(
+      day.weather[0].main
+    )} class="weather-icon" alt="weatherIcon"/>
     <p class="max-temp">${convertToCelsius(day.temp.max)}&degC</p>
     <p class="min-temp">${convertToCelsius(day.temp.min)}&degC</p>
     </div>`;
   });
   displayForcast = displayForcast.join("");
   document.querySelector(".forcast").innerHTML = displayForcast;
-}
+};
 // convert temp Kelvin to celsius
-function convertToCelsius(kelvin) {
+convertToCelsius = (kelvin) => {
   return (kelvin - 273.15).toFixed(0);
-}
+};
 // convert wind speed m/s to km/h
-function convertWindSpeed(meterSecond) {
+convertWindSpeed = (meterSecond) => {
   return (meterSecond * 3.6).toFixed(0);
-}
+};
 //convert wind degree to letter (N , S , SE,...)
-function windDirection(windDegree) {
+windDirection = (windDegree) => {
   if (0 < windDegree && windDegree < 11.5) {
     return "N";
   } else if (11.5 < windDegree && windDegree <= 33.75) {
@@ -125,4 +108,36 @@ function windDirection(windDegree) {
   } else if (348.75 < windDegree && windDegree <= 360) {
     return "N";
   }
-}
+};
+// svg icons
+weatherIcons = (weatherStatus) => {
+  switch (weatherStatus) {
+    case "Clouds":
+      return "./icons/clouds.svg";
+      break;
+    case "Clear":
+      return "./icons/clear.svg";
+      break;
+    case "Tornado":
+    case "Sqaull":
+    case "Ash":
+    case "Dust":
+    case "Sand":
+    case "Fog":
+    case "Haze":
+    case "Smoke":
+    case "Mist":
+      return "./icons/clear.svg";
+      break;
+    case "Snow":
+      return "./icons/snow.svg";
+      break;
+    case "Rain":
+      return "./icons/rain.svg";
+      break;
+    case "Drizzle":
+      return "./icons/drizzle.svg";
+    case "Thunderstorm":
+      return "./icons/thunderstorm.svg";
+  }
+};

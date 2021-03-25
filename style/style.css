@@ -96,6 +96,10 @@ header {
 
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .main {
+    font-size: 2rem;
+  }
+
   header {
     display: flex;
     justify-content: end;
@@ -135,6 +139,39 @@ header {
 
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .main {
+    font-size: 2rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: end;
+  }
+
+  .current-icon {
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .current-icon img {
+    width: 100%;
+  }
+
+  .currentInfo {
+    width: 40%;
+  }
+
+  .weather-icon {
+    width: 50%;
+  }
+  .eachDay {
+    display: flex;
+    flex-direction: column;
+  }
+  .forcast {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* ----------- iPhone 6+, 7+ and 8+ ----------- */
@@ -145,6 +182,39 @@ header {
 
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .main {
+    font-size: 2rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: end;
+  }
+
+  .current-icon {
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .current-icon img {
+    width: 100%;
+  }
+
+  .currentInfo {
+    width: 40%;
+  }
+
+  .weather-icon {
+    width: 50%;
+  }
+  .eachDay {
+    display: flex;
+    flex-direction: column;
+  }
+  .forcast {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* ----------- iPhone X ----------- */
@@ -155,4 +225,37 @@ header {
 
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .main {
+    font-size: 2rem;
+  }
+
+  header {
+    display: flex;
+    justify-content: end;
+  }
+
+  .current-icon {
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .current-icon img {
+    width: 100%;
+  }
+
+  .currentInfo {
+    width: 40%;
+  }
+
+  .weather-icon {
+    width: 50%;
+  }
+  .eachDay {
+    display: flex;
+    flex-direction: column;
+  }
+  .forcast {
+    display: flex;
+    justify-content: space-between;
+  }
 }
