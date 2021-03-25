@@ -1,5 +1,3 @@
-var data;
-var windDegree;
 // svg icons
 let icons = {
   Clouds: "./allsvg/clouds.svg",
@@ -19,35 +17,32 @@ let icons = {
   Thunderstorm: "./allsvg/thunderstorm.svg",
 };
 //fetch weather data for Barcelona then calls currentWeather and forcast functions to show current weather and 5 upcoming days forcast
-fetch(
-  "https://api.openweathermap.org/data/2.5/onecall?lon=2.159&lat=41.3888&uniots=metric&appid=ad86ce3ee764480409cf4761eedd5260",
-  { method: "GET" }
-)
-  .then(function (res) {
-    if (res) {
-      return res.json();
-      // console.log(res.json());
-    }
-  })
-  .then(function (json) {
-    data = json;
-    console.log(data);
-    currentWeather(data);
-    forcast(data.daily);
-  })
-  .catch(function (error) {
-    console.log("Request failed: " + error.message);
-  });
-
+fetchWeatherData();
+function fetchWeatherData() {
+  fetch(
+    "https://api.openweathermap.org/data/2.5/onecall?lon=2.159&lat=41.3888&uniots=metric&appid=ad86ce3ee764480409cf4761eedd5260",
+    { method: "GET" }
+  )
+    .then(function (res) {
+      if (res) {
+        return res.json();
+      }
+    })
+    .then(function (json) {
+      let data = json;
+      currentWeather(data);
+      forcast(data.daily);
+    })
+    .catch(function (error) {
+      console.log("Request failed: " + error.message);
+    });
+}
 // current weather
 function currentWeather(data) {
   document.querySelector(".current-icon").innerHTML = `<img  src=${
     icons[data.current.weather[0].main]
   }>`;
-
-  document.querySelector(
-    ".currentInfo"
-  ).innerHTML = `  <h1>Barcelona, Spain</h1>
+  document.querySelector(".currentInfo").innerHTML = `<h1>Barcelona, Spain</h1>
       <p class="current-temp">${convertToCelsius(data.current.temp)}&deg</p>
       <p class="current-humidity">Humidity: ${data.current.humidity}%</p>
       <p class="current-uvi">UVI: ${data.current.uvi}%</p>
@@ -61,8 +56,7 @@ function forcast(weekdays) {
   for (i = 0; i < 5; i = i + 1) {
     comingDays.push(weekdays[i]);
   }
-
-  var weekday = new Array(7);
+  let weekday = new Array(7);
   weekday[0] = "Sunday";
   weekday[1] = "Monday";
   weekday[2] = "Tuesday";
@@ -70,12 +64,8 @@ function forcast(weekdays) {
   weekday[4] = "Thursday";
   weekday[5] = "Friday";
   weekday[6] = "Saturday";
-
-  var today = new Date().getDay();
-  console.log(today);
-
+  let today = new Date().getDay();
   weekday[today] = "Today";
-
   let displayForcast = comingDays.map(function (day) {
     console.log(day);
     let dayNum = new Date(day.dt * 1000).getDay();
