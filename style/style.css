@@ -10,9 +10,12 @@ body {
     rgb(68, 68, 223),
     rgb(24, 24, 179)
   );
+  border-radius: 100px;
+  height: 190vh;
+}
 
-  border-radius: 20px;
-  height: 100vh;
+h1 {
+  font-size: 4rem;
 }
 
 main {
@@ -60,12 +63,11 @@ header {
 
 /* ----------- iPhone 4 and 4S ----------- */
 
-/* Portrait */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-}
-
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  main {
+    height: 100vh;
+  }
 }
 
 /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
@@ -96,7 +98,11 @@ header {
 
 /* Landscape */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  .main {
+  body {
+    height: 100%;
+  }
+
+  main {
     font-size: 2rem;
   }
 
@@ -133,13 +139,13 @@ header {
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 
-/* Portrait */
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-}
-
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
-  .main {
+  body {
+    height: 100%;
+  }
+
+  main {
     font-size: 2rem;
   }
 
@@ -158,7 +164,7 @@ header {
   }
 
   .currentInfo {
-    width: 40%;
+    width: 55%;
   }
 
   .weather-icon {
@@ -176,13 +182,13 @@ header {
 
 /* ----------- iPhone 6+, 7+ and 8+ ----------- */
 
-/* Portrait */
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
-}
-
 /* Landscape */
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-  .main {
+  body {
+    height: 100%;
+  }
+
+  main {
     font-size: 2rem;
   }
 
@@ -201,7 +207,7 @@ header {
   }
 
   .currentInfo {
-    width: 40%;
+    width: 55%;
   }
 
   .weather-icon {
@@ -219,14 +225,14 @@ header {
 
 /* ----------- iPhone X ----------- */
 
-/* Portrait */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
-}
-
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-  .main {
-    font-size: 2rem;
+  body {
+    height: 100%;
+  }
+
+  main {
+    font-size: 1.5rem;
   }
 
   header {
@@ -244,7 +250,7 @@ header {
   }
 
   .currentInfo {
-    width: 40%;
+    width: 55%;
   }
 
   .weather-icon {
